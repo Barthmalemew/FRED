@@ -18,7 +18,7 @@ while True:
         image = cv2.rectangle(frame, (x, y), (x + w, y + h), (89, 2, 236), 1)
         try:
             analyze = DeepFace.analyze(frame, actions=['emotion'])
-            cv2.putText(image, analyze[0]['dominant_emotion'], (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (224, 77, 176), 2)
+            cv2.putText(image, analyze[0]['dominant_emotion'], (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (89, 2, 236), 2)
             print(analyze[0]['dominant_emotion'])
         except:
             print('no face')
