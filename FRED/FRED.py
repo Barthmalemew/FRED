@@ -17,13 +17,13 @@ while video.isOpened():
         image = cv2.rectangle(frame, (x, y), (x + w, y + h), (89, 2, 236), 1)
         try:
             analyze = DeepFace.analyze(frame, actions=['emotion'])
-            cv2.putText(image, analyze['dominant emotion'], (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (224, 77, 176), 2)
-            print(analyze['dominant emotion'])
+            cv2.putText(image, analyze[0]['dominant emotion'], (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (224, 77, 176), 2)
+            print(analyze[0]['dominant emotion'])
         except:
             print('no face')
 
     cv2.imshow('video', frame)
-    key=cv2.waitKey(1)
+    key=cv2.waitKey(50)
     if key == ord('q'):
         break
 video.release()
